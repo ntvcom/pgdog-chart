@@ -56,6 +56,14 @@ openMetricsPort: 9090
 # openMetricsNamespace configures the metrics namespace
 openMetricsNamespace: pgdog_
 
+# extraConfig injects raw TOML into the [general] section.
+# Use for any pgdog option not explicitly supported by the chart.
+# Example:
+# extraConfig: |
+#   log_level = "info"
+#   some_future_option = 42
+extraConfig: ""
+
 # Admin password
 # adminPassword: change-me
 
