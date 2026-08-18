@@ -80,6 +80,11 @@ service:
   # annotations allows adding custom annotations to the service
   annotations: {}
 
+# extraEnv adds extra environment variables to the pgdog container
+extraEnv: []
+  # - name: MY_VAR
+  #   value: "my-value"
+
 # tolerations allows pods to be scheduled on nodes with matching taints
 tolerations: []
 
@@ -97,6 +102,16 @@ affinity: {}
   #           values:
   #           - pgdog
   #       topologyKey: kubernetes.io/hostname
+
+# topologySpreadConstraints controls how pods are spread across topology domains
+topologySpreadConstraints: []
+  # Example: spread pods evenly across zones
+  # - maxSkew: 1
+  #   topologyKey: topology.kubernetes.io/zone
+  #   whenUnsatisfiable: DoNotSchedule
+  #   labelSelector:
+  #     matchLabels:
+  #       app: pgdog
 
 # podAntiAffinity enables default anti-affinity rules to spread pods
 # across nodes
